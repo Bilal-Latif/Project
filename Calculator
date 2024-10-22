@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class MathOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for a number
+        System.out.print("Enter a number: ");
+        double number = scanner.nextDouble();
+
+        // Display operation options
+        System.out.println("Choose an operation:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+
+        int choice = scanner.nextInt();
+
+        // Prompt for a second number for operations
+        if (choice >= 1 && choice <= 4) {
+            System.out.print("Enter another number: ");
+            double secondNumber = scanner.nextDouble();
+            double result = 0;
+
+            switch (choice) {
+                case 1:
+                    result = number + secondNumber;
+                    System.out.println("Result of addition: " + result);
+                    break;
+                case 2:
+                    result = number - secondNumber;
+                    System.out.println("Result of subtraction: " + result);
+                    break;
+                case 3:
+                    result = number * secondNumber;
+                    System.out.println("Result of multiplication: " + result);
+                    break;
+                case 4:
+                    if (secondNumber != 0) {
+                        result = number / secondNumber;
+                        System.out.println("Result of division: " + result);
+                    } else {
+                        System.out.println("Error: Cannot divide by zero.");
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        } else {
+            System.out.println("Invalid choice.");
+        }
+
+        scanner.close();
+    }
+}
